@@ -7,11 +7,14 @@
 
 		<div class="post-header">
 			<h1 class="title">{{ .Title }}</h1>
-			{{- if not ((isset .Params "removedate") and (eq .Params.removedate true) ) -}}
-			<div class="meta">Posted at &mdash; {{ dateFormat "Jan 2, 2006" .Date }}
-				{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}
-			</div>
-			{{ end }}
+			{{if not (isset .Params "removedate")}}
+				{{if (eq .Params.removedate true)}}
+				{{else}}
+				<div class="meta">Posted at &mdash; {{ dateFormat "Jan 2, 2006" .Date }}
+					{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}
+				</div>
+				{{end}}
+			{{end}}
 		</div>
 
 		<div class="markdown">
