@@ -10,7 +10,7 @@
 			{{if not (isset .Params "removedate")}}
 				{{if (eq .Params.removedate true)}}
 				{{else}}
-				<div class="meta">Posted on &mdash; {{ dateFormat "Jan 2, 2006" .Date }}
+				<div class="meta">Posted  on : &mdash; {{ dateFormat "Jan 2, 2006" .Date }}
 					{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}
 				</div>
 				{{end}}
